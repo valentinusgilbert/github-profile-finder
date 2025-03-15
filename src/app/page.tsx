@@ -8,7 +8,6 @@ import SearchInput from "../components/shared/searchInput"; // Import SearchInpu
 
 export default function Home() {
   return (
-    <RootLayout>
       <div className="home">
         <div className="home__container">
           <div className="home__subtitle">
@@ -30,6 +29,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </RootLayout>
   );
 }
