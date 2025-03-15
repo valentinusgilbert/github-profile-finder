@@ -1,7 +1,10 @@
+"use client";
+
 import RootLayout from "./layout";
-import { FaGithub, FaUser, FaSearch } from "react-icons/fa"; // Import icons
+import { FaGithub } from "react-icons/fa"; // Import icons
 import "./styles.scss";
 import "../../styles/global.scss"; // Import global.scss
+import SearchInput from "../components/shared/searchInput"; // Import SearchInput component
 
 export default function Home() {
   return (
@@ -12,17 +15,14 @@ export default function Home() {
             Know deeper other person in Github
           </div>
           <div className="home__title">
-          <FaGithub /> <span className="home__title-text">USER   FINDER</span> 
+            <FaGithub /> <span className="home__title-text">PROFILE FINDER</span>
           </div>
           <div className="home__search">
-            <input type="text" placeholder="@username_github" className="home__search-input" />
-            <button className="home__search-button">
-              <FaSearch />
-            </button>
+            <SearchInput />
           </div>
           <div className="home__rights">
             <div className="home__rights-text">
-              All rights reserved @Valentinus Gilbert Sanjaya 
+              All rights reserved @Valentinus Gilbert Sanjaya
             </div>
             <div className="home__rights-powered">
               Powered by Github API
