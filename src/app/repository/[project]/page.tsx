@@ -1,11 +1,19 @@
-import RootLayout from "../../layout";
+'use client'
+import React from 'react';
+import Page from '../../../components/shared/pages';
+import { useUser } from '../../../../lib/composable/useUser';
+import SearchInput from "../../../components/shared/searchInput"; // Import SearchInput component
+import "../../../../styles/global.scss";
 
-export default async function ProjectPage({ params }: { params: { project: string } }) {
-  const { project } = await params;
+export default function usernamePage({ params }: { params: Promise<{ username: string }> }) {
+  const { username } = React.use(params);
+  const { user, loading } = useUser();
 
   return (
-      <div>
-        <h1>Project: {project}</h1>
+    <Page>
+      <div className="profile">
+      
       </div>
+    </Page>
   );
 }
