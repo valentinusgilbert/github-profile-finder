@@ -1,22 +1,41 @@
-import React from 'react';
-import { FaUser, FaBuilding, FaMapMarkerAlt, FaEnvelope, FaBlog, FaCheck, FaTimes } from 'react-icons/fa';
-import './profileData.scss';
+'use client'
+import React, { useEffect } from 'react';
+import { FaUser, FaBuilding, FaMapMarkerAlt, FaEnvelope, FaBlog } from 'react-icons/fa';
+import './scss/profileData.scss';
+import { useUser } from '../../../../../lib/composable/useUser';
 
-interface User {
-  avatar_url: string;
-  login: string;
-  name: string | null; // Allow name to be string or null
-  bio?: string | null; // Allow bio to be string, null, or undefined
-  followers: number;
-  following: number;
-  company?: string | null; // Allow company to be string, null, or undefined
-  location?: string | null;
-  email?: string | null;
-  blog?: string | null;
-  hireable?: string | null;
-}
+export default function ProfileData({ username }: { username: string }) {
+  const { loading, user, fetchUser } = useUser();
 
-export default function ProfileData({ user }: { user: User }) {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      fetchUser(username);
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, [username]);
+
+  if (!user || loading) {
+    return (
+      <div className="profile__data">
+        <div className="skeleton skeleton-avatar"></div>
+        <div className="skeleton skeleton-name"></div>
+        <div className="skeleton skeleton-id"></div>
+        <div className="skeleton skeleton-bio"></div>
+        <div className="profile__data-follow">
+          <div className="skeleton skeleton-follow"></div>
+          <div className="skeleton skeleton-follow"></div>
+        </div>
+        <div className="profile__data-container">
+          <div className="skeleton skeleton-row"></div>
+          {/* <div className="skeleton skeleton-row"></div>
+          <div className="skeleton skeleton-row"></div>
+          <div className="skeleton skeleton-row"></div> */}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="profile__data">
       <img src={user.avatar_url} alt={`${user.login}'s avatar`} className="profile__data-avatar" />
