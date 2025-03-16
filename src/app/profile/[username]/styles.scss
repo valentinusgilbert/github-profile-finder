@@ -1,6 +1,13 @@
 .profile {
     color: #9198A1;
     display: flex;
+    flex-direction: column;
     gap: 24px;
     width: 680px;
+    
+    &__container {
+        display: flex;
+        gap: 24px;
+
+    }
 }

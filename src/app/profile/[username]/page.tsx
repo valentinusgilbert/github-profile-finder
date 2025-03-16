@@ -2,7 +2,7 @@
 import React from 'react';
 import Page from '../../../components/shared/pages';
 import { useUser } from '../../../../lib/composable/useUser';
-import { FaUser, FaBuilding, FaMapMarkerAlt, FaEnvelope, FaBlog, FaCheck, FaTimes } from 'react-icons/fa'; // Import additional icons from react-icons
+import SearchInput from "../../../components/shared/searchInput"; // Import SearchInput component
 import "../../../../styles/global.scss";
 import './styles.scss'
 import ProfileData from './_components/profileData';
@@ -15,8 +15,12 @@ export default function usernamePage({ params }: { params: Promise<{ username: s
   return (
     <Page>
       <div className="profile">
-        <ProfileData username={username} />
-        <RepoListData username={username} />
+        <SearchInput />
+        <div className="profile__container">
+          <ProfileData username={username} />
+          <RepoListData username={username} />
+        </div>
+
       </div>
     </Page>
   );

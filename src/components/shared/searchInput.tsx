@@ -17,6 +17,14 @@ export default function SearchInput() {
     }
   };
 
+  interface HandleKeyPressEvent extends React.KeyboardEvent<HTMLInputElement> {}
+
+  const handleKeyPress = (e: HandleKeyPressEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="search">
       <div className="search__field">
@@ -26,6 +34,7 @@ export default function SearchInput() {
           className="search__input"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
         <button className="search__button" onClick={handleSearch}>
           <FaSearch />
