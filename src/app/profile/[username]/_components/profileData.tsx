@@ -10,10 +10,10 @@ interface User {
   followers: number;
   following: number;
   company?: string | null; // Allow company to be string, null, or undefined
-  location?: string;
-  email?: string;
-  blog?: string;
-  hireable?: boolean;
+  location?: string | null;
+  email?: string | null;
+  blog?: string | null;
+  hireable?: string | null;
 }
 
 export default function ProfileData({ user }: { user: User }) {
