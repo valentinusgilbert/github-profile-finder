@@ -1,8 +1,11 @@
 'use client'
 import React, { useEffect } from 'react';
-import RootLayout from "../../layout";
+import Page from '../../../components/shared/pages';
 import { useUser } from '../../../../lib/composable/useUser';
+import { FaUser, FaBuilding, FaMapMarkerAlt, FaEnvelope, FaBlog, FaCheck, FaTimes } from 'react-icons/fa'; // Import additional icons from react-icons
 import "../../../../styles/global.scss";
+import './styles.scss'
+import ProfileData from './_components/profileData';
 
 export default function usernamePage({ params }: { params: Promise<{ username: string }> }) {
   const { username } = React.use(params);
@@ -21,13 +24,13 @@ export default function usernamePage({ params }: { params: Promise<{ username: s
   }
 
   return (
-    <div>
-      <h1>Profile: {username}</h1>
-      <div>
-        <p>name: {user.name}</p>
-        <p>Bio: {user.bio}</p>
-        {/* Add more user details as needed */}
+    <Page>
+      <div className="profile">
+        <ProfileData user={user} />
+        <div className="profile__repo">
+
+        </div>
       </div>
-    </div>
+    </Page>
   );
 }

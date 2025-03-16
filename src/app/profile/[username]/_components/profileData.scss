@@ -1,0 +1,71 @@
+.profile__data {
+  display: flex;
+  flex-direction: column; 
+  &-avatar{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &-name {
+    font-size: 24px;
+    color: #D1D7E0;
+    padding: 12px 0px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    &-id {
+      font-size: 20px;
+      color: #9198A1;
+      font-weight: 100;
+    }
+    &-bio {
+      font-size: 16px;
+      color: #D1D7E0;
+      font-weight: 100;
+    }
+  }
+  &-follow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+    &-text {
+      display: flex;
+      gap: 4px;
+    }
+    &-number {
+      color: #D1D7E0;
+      font-weight: bold;
+    }
+    .dot-separator {
+      width: 2px;
+      height: 2px;
+      background-color: #9198A1;
+      border-radius: 50%;
+    }
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    &__row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      &-text {
+        color: #D1D7E0;
+        &.blog-link {
+          text-decoration: none;
+          &:hover {
+            color: #478BE6;
+            text-decoration: underline;
+          }
+        }
+      }
+      svg {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
