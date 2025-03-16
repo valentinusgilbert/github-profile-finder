@@ -38,7 +38,11 @@ export default function ProfileData({ username }: { username: string }) {
 
   return (
     <div className="profile__data">
-      <img src={user.avatar_url} alt={`${user.login}'s avatar`} className="profile__data-avatar" />
+      <img 
+        src={user.avatar_url || 'https://placehold.co/300x300'} 
+        alt={`${user.login}'s avatar`} 
+        className="profile__data-avatar" 
+      />
       <div className='profile__data-name'>
         {user.name}
         <span className='profile__data-name-id'>  

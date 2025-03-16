@@ -1,7 +1,11 @@
 .profile__data {
   display: flex;
   flex-direction: column; 
-  width: 250px;
+  max-width: 200px;
+  img {
+    width: 200px;
+    height: 200px;
+  }
   &-avatar{
     width: 100%;
     border-radius: 50%;
@@ -76,8 +80,8 @@
   border-radius: 4px;
   margin-bottom: 8px;
   &.skeleton-avatar {
-    width: 176px;
-    height: 176px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
   }
   &.skeleton-name {
