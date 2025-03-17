@@ -14,6 +14,8 @@ By Valentinus Gilbert Sanjaya
 First, run the development server:
 
 ```bash
+npm install
+# or
 npm run dev
 # or
 yarn dev
