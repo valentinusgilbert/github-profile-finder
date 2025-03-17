@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #D1D7E0;
+        font-weight: bolder;
+        font-size: 20px;
+        cursor: pointer;
+        &-text {
+            font-size: 24px;
+            letter-spacing: 4px; 
+            @media screen and (max-width: 768px) {
+                font-size: 20px;
+                
+            }
+        }
+    }
+}

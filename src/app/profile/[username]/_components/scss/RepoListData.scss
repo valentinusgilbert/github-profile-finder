@@ -26,6 +26,10 @@
     border-bottom: 1px solid #d1d7e0;
     padding: 8px 0;
     background-color: #3e516d;
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+      
+    }
   }
   &__container {
     padding: 0 12px;
@@ -45,6 +49,12 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    @media screen and (max-width: 768px) {
+      gap: 4px;
+      h3 {
+        font-size: 12px;
+      }
+    }
   }
   &__badge {
     border: 1px solid #fff;
@@ -54,6 +64,10 @@
   }
   &__description {
     font-weight: 100;
+    margin-top: 8px;
+    @media screen and (max-width: 768px) {
+      font-size: 10px;
+    }
   }
   &__button {
     button {

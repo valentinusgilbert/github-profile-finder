@@ -4,8 +4,9 @@ import { FaArrowLeft, FaFile } from 'react-icons/fa';
 import './scss/RepoDetailData.scss';
 import { useRepoContext } from '../../../../../lib/context/RepoContext';
 import { useUserContext } from '../../../../../lib/context/UserContext';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 export default function RepoDetailData() {
   const { repos, selectedRepoName, setSeeRepoDetail, fetchRepoReadme, readme, setReadme } = useRepoContext();
@@ -59,15 +60,14 @@ export default function RepoDetailData() {
               <FaFile className="repo-detail__readme-icon" />
             </div>
             {readme ? (
-              <SyntaxHighlighter
-                language="markdown"
-                style={atomOneDark}
-                className="repo-detail__readme-content"
-                wrapLines={true}
-                lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
-              >
-                {readme}
-              </SyntaxHighlighter>
+              <div className="repo-detail__readme-content">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw]}
+                >
+                  {readme}
+                </ReactMarkdown>
+              </div>
             ) : (
                 <div className="repo-detail__readme-empty">
                     No README available

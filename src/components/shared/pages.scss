@@ -1,31 +1,10 @@
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    &__title {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: #D1D7E0;
-        font-weight: bolder;
-        font-size: 20px;
-        cursor: pointer;
-        &-text {
-            font-size: 24px;
-            letter-spacing: 4px; // Adjust letter spacing
-          }
-    }
-   
-}
-
-
-
 .main-content {
   display: flex;
   align-items: center;
   margin: auto;
   padding:32px;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    padding: 16px;    
+  }
 }
