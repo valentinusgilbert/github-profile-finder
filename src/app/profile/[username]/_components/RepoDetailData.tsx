@@ -19,6 +19,7 @@ export default function RepoDetailData() {
       fetchRepoReadme(user.login, repo.name);
       hasFetchedReadme.current = true;
     }
+    console.log(repo);
   }, [repo, user, fetchRepoReadme]);
 
   const handleClickBack = () => {
@@ -27,7 +28,6 @@ export default function RepoDetailData() {
     hasFetchedReadme.current = false;
   };
 
-  console.log(repo);
   if (!repo) {
     return <FaArrowLeft className="repo-detail__back-icon" onClick={handleClickBack} />
   }
