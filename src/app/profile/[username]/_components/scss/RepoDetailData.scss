@@ -72,6 +72,10 @@
         overflow-y: auto;
         padding:8px;
 
+        img {
+            width: 140px;
+            border: 1px solid #d1d7e0;
+        }
         a {
             color: #96ebab;
             text-decoration: none;
@@ -90,6 +94,11 @@
         }
         h3 {
             font-size: 14px;
+        }
+        li, ul, ol {
+            margin: 0px 8px;
+            width: 200px;
+     
         }
         p {
             margin: 12px 0px;
