@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 import { Repo } from '../models/repo';
 import { getRepoListByUsername, getRepoReadme } from '../api/repo';
 
@@ -15,6 +15,7 @@ interface RepoContextType {
   fetchRepoReadme: (owner: string, repo: string) => Promise<void>;
   setRepos: (repos: Repo[]) => void;
   setSelectedRepoName: (repo: string) => void;
+  setReadme: (readme: string | null) => void;
 }
 
 const RepoContext = createContext<RepoContextType | undefined>(undefined);
@@ -40,20 +41,23 @@ export const RepoProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const fetchRepoReadme = async (owner: string, repo: string) => {
+  const fetchRepoReadme = useCallback(async (owner: string, repo: string) => {
     setLoading(true);
-    setError(null);
     try {
       const readmeData = await getRepoReadme(owner, repo);
-      setReadme(readmeData);
-      setSelectedRepoName(repo);
+      const decodedContent = atob(readmeData.content);
+      setReadme(decodedContent);
+      console.log(readme)
+
+    } catch (err) {
+      setError(err as Error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   return (
-    <RepoContext.Provider value={{ repos, loading, error, selectedRepoName, readme, isSeeRepoDetail, setSeeRepoDetail, fetchRepos, fetchRepoReadme, setRepos, setSelectedRepoName}}>
+    <RepoContext.Provider value={{ repos, loading, error, selectedRepoName, readme, isSeeRepoDetail, setSeeRepoDetail, fetchRepos, fetchRepoReadme, setRepos, setSelectedRepoName, setReadme }}>
       {children}
     </RepoContext.Provider>
   );
