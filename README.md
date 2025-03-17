@@ -1,6 +1,10 @@
+Github Profile Finder
+By Valentinus Gilbert Sanjaya
+
 ![image](https://github.com/user-attachments/assets/80de36dc-01a9-4db4-9baf-ebce176490e2)
 
 ![image](https://github.com/user-attachments/assets/11d1dfdd-b5b5-4d78-a90d-67e2bd49b954)
+
 ![image](https://github.com/user-attachments/assets/dbdbddc7-cd17-492d-8f78-5179db2b290d)
 
 
