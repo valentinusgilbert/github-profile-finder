@@ -21,7 +21,7 @@ export default function Home() {
           </div>
           <div className="home__rights">
             <div className="home__rights-text">
-              All rights reserved @Valentinus Gilbert Sanjaya
+              Valentinus Gilbert Sanjaya
             </div>
             <div className="home__rights-powered">
               Powered by Github API
