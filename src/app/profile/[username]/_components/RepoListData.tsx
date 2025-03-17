@@ -4,9 +4,10 @@ import { useRouter } from 'next/navigation';
 import { FaFolderOpen } from 'react-icons/fa';
 import './scss/RepoListData.scss';
 import { useRepoContext } from '../../../../../lib/context/RepoContext';
+import RepoDetailData from './RepoDetailData';
 
 export default function RepoListData({ username }: { username: string }) {
-  const { loading: repoLoading, repos, fetchRepos, fetchRepoReadme, setSeeRepoDetail } = useRepoContext();
+  const { loading: repoLoading, repos, fetchRepos, setSelectedRepoName, setSeeRepoDetail } = useRepoContext();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const reposPerPage = 5;
@@ -21,6 +22,7 @@ export default function RepoListData({ username }: { username: string }) {
 
   const handleSeeDetails = (repoName: string) => {
     setSeeRepoDetail(true);
+    setSelectedRepoName(repoName);
   };
 
   const handlePageChange = (pageNumber: number) => {

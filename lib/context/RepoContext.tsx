@@ -7,13 +7,14 @@ interface RepoContextType {
   repos: Repo[];
   loading: boolean;
   error: Error | null;
-  selectedRepo: string | null;
+  selectedRepoName: string | null;
   readme: string | null;
   isSeeRepoDetail: boolean;
   setSeeRepoDetail: (value: boolean) => void;
   fetchRepos: (username: string) => Promise<void>;
   fetchRepoReadme: (owner: string, repo: string) => Promise<void>;
   setRepos: (repos: Repo[]) => void;
+  setSelectedRepoName: (repo: string) => void;
 }
 
 const RepoContext = createContext<RepoContextType | undefined>(undefined);
@@ -22,7 +23,7 @@ export const RepoProvider = ({ children }: { children: ReactNode }) => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const [selectedRepo, setSelectedRepo] = useState<string | null>(null);
+  const [selectedRepoName, setSelectedRepoName] = useState<string | null>(null);
   const [readme, setReadme] = useState<string | null>(null);
   const [isSeeRepoDetail, setSeeRepoDetail] = useState(false);
 
@@ -45,14 +46,14 @@ export const RepoProvider = ({ children }: { children: ReactNode }) => {
     try {
       const readmeData = await getRepoReadme(owner, repo);
       setReadme(readmeData);
-      setSelectedRepo(repo);
+      setSelectedRepoName(repo);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <RepoContext.Provider value={{ repos, loading, error, selectedRepo, readme, isSeeRepoDetail, setSeeRepoDetail, fetchRepos, fetchRepoReadme, setRepos }}>
+    <RepoContext.Provider value={{ repos, loading, error, selectedRepoName, readme, isSeeRepoDetail, setSeeRepoDetail, fetchRepos, fetchRepoReadme, setRepos, setSelectedRepoName}}>
       {children}
     </RepoContext.Provider>
   );
