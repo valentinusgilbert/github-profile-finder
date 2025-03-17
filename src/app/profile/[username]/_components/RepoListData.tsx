@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaFolderOpen } from 'react-icons/fa';
 import './scss/RepoListData.scss';
-import { useUser } from '../../../../../lib/composable/useUser';
-import { useRepo } from '../../../../../lib/composable/useRepo';
+import { useRepoContext } from '../../../../../lib/context/RepoContext';
 
-export default function ProfileData({ username }: { username: string }) {
-  const { loading: repoLoading, repos, fetchRepos } = useRepo();
+export default function RepoListData({ username }: { username: string }) {
+  const { loading: repoLoading, repos, fetchRepos, fetchRepoReadme, setSeeRepoDetail } = useRepoContext();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const reposPerPage = 5;
@@ -21,7 +20,7 @@ export default function ProfileData({ username }: { username: string }) {
   }, [username]);
 
   const handleSeeDetails = (repoName: string) => {
-    router.push(`/repository/${repoName}`);
+    setSeeRepoDetail(true);
   };
 
   const handlePageChange = (pageNumber: number) => {
