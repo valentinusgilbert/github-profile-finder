@@ -106,4 +106,5 @@ export interface Repo {
   open_issues: number;
   watchers: number;
   default_branch: string;
+  topics: string[];
 }

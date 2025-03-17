@@ -8,6 +8,7 @@ import "../../../../styles/global.scss";
 import './styles.scss'
 import ProfileData from './_components/profileData';
 import RepoListData from './_components/RepoListData';
+import RepoDetailData from './_components/RepoDetailData';
 
 export default function UsernamePage({ params }: { params: Promise<{ username: string }> }) {
   const { username } = React.use(params);
@@ -33,9 +34,7 @@ function RepoContent({ username }: { username: string }) {
   const { isSeeRepoDetail } = useRepoContext();
 
   return isSeeRepoDetail ? (
-    <div className="repo-detail">
-      <h2>aa</h2>
-    </div>
+    <RepoDetailData />
   ) : (
     <RepoListData username={username} />
   );

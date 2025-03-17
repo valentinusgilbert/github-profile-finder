@@ -1,0 +1,55 @@
+.repo-detail {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #d1d7e0;
+  padding: 16px;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #d1d7e0;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+
+    h2 {
+      margin: 0;
+    }
+
+    .repo-detail__back-icon {
+      position: absolute;
+      left: 0;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .repo-detail__badge {
+      margin-left: 10px;
+      border: 1px solid #d1d7e0;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 10px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    &-topic {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      &-badge {
+        background-color: #d1d7e0;
+        color: black;
+        border-radius: 12px;
+        padding: 2px 8px;
+        font-size: 10px;
+      }
+    }
+  }
+}
