@@ -2,10 +2,10 @@
 import React, { useEffect } from 'react';
 import { FaUser, FaBuilding, FaMapMarkerAlt, FaEnvelope, FaBlog } from 'react-icons/fa';
 import './scss/profileData.scss';
-import { useUser } from '../../../../../lib/composable/useUser';
+import { useUserContext } from '../../../../../lib/context/UserContext';
 
 export default function ProfileData({ username }: { username: string }) {
-  const { loading, user, fetchUser } = useUser();
+  const { loading, user, fetchUser } = useUserContext();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
