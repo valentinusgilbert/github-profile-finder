@@ -14,6 +14,11 @@ By Valentinus Gilbert Sanjaya
 First, run the development server:
 
 ```bash
+##install the node modules first
+npm install
+
+then run it
+
 npm run dev
 # or
 yarn dev
